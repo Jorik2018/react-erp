@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+  quizapp:
+    build: .
+    image: "${REGISTRY_NAME}devclubiitd/quizapp:1.0"
+    depends_on:
+      - database
+    environment:
+      - VIRTUAL_HOST
+      - PORT
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+      - DATABASE_URL
+      - REACT_APP_VIRTUAL_HOST
+      - QM_NAME
+      - QM_PASSWORD
+      - QM_EMAIL
+      - QM_PHONE
+    ports:
+      - ${PORT}:${PORT}
+    restart: "unless-stopped"
+    networks:
+      - "internal"
+      - "reverseproxy"
+  database:
+    image: "${REGISTRY_NAME}postgres:11.2-alpine"
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    volumes:
+      - quizdata:/var/lib/postgresql/data
+    networks:
+      - "internal"
+    restart: "unless-stopped"
+
+volumes:
+  quizdata:
+networks:
+  reverseproxy:
+    external:
+      name: "reverseproxy"
+  internal:
