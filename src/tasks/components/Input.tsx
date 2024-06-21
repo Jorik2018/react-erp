@@ -1,6 +1,12 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
-function Input({ input, label, type, required, meta: { touched, error, invalid } }) {
+function Input({ input, type, label, required, meta: { touched, error, invalid } }: {
+  input: { [key: string]: string },
+  type: string,
+  label: string,
+  required: boolean,
+  meta: { touched: boolean, error: string, invalid: boolean }
+}) {
   return (
     <div className={`form-group ${required ? 'required' : ''} 
       ${required && touched && invalid ? 'has-danger' : ''}`}>

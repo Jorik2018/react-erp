@@ -1,16 +1,23 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import Moment from 'moment';
 
 import { Alert } from 'react-bootstrap';
-import { types } from '../constants/columnTypes';
+import { types } from '../../constants';
+import { Task, TodoCell } from '../models/Task';
 
-function renderRows({ data, objectKey, selectedRow, onRowSelect, cells }) {
-  return data.map(object => {
+type ObjectType = { [key: string]: string | boolean };
+
+function renderRows({ data, objectKey, selectedRow, onRowSelect, cells }: {
+  data: Task[], objectKey: string, selectedRow: Task, onRowSelect: (row: Task) => void,
+  cells: TodoCell[]
+}) {
+  return data.map(item => {
+    const object = item as unknown as ObjectType;
     return (
-      <tr 
-        key={object[objectKey]} 
-        onClick={() => setSelectedRow(object, selectedRow, onRowSelect)} 
-        className={`${selectedRow === object ? 'selected-row' : ''}`}>
+      <tr
+        key={object[objectKey] as string}
+        onClick={() => setSelectedRow(item, selectedRow, onRowSelect)}
+        className={`${selectedRow === item ? 'selected-row' : ''}`}>
         {cells.map(cell => {
           return (
             <td key={cell.name}>
@@ -18,43 +25,51 @@ function renderRows({ data, objectKey, selectedRow, onRowSelect, cells }) {
             </td>
           );
         })}
+
       </tr>
     );
   });
 }
 
-function validateValue(value, { type }) {
+function validateValue(value: string | boolean, { type }: { type: string }) {
   switch (type) {
     case types.BOOLEAN:
       return value ? 'Yes' : 'No';
-    case types.TIMESTAMP: 
-      return value ? Moment(new Date(value)).format('L LTS') : '';
+    case types.TIMESTAMP:
+      return value ? Moment(new Date(value as string)).format('L LTS') : '';
   }
   return value;
 }
 
-function renderHeaderCells({ cells }) {
+function renderHeaderCells({ cells }: { cells: TodoCell[] }) {
   return cells.map(cell => <th key={cell.name}>{cell.name}</th>);
 }
 
-function setSelectedRow(object, selectedRow, onRowSelect) {
+function setSelectedRow(object: Task,
+  selectedRow: Task, onRowSelect: (row: Task) => void) {
   if (selectedRow === object) {
-    object = {};
+    object = {} as Task;
   }
   onRowSelect(object);
 }
 
-function renderAlert({ data }) {
+function renderAlert({ data }: { data: Task[] }) {
   if (data.length === 0) {
     return (
-      <Alert bsStyle="info">
+      <Alert>
         <strong>Heads up!</strong> There is no record available.
-      </Alert> 
+      </Alert>
     );
   }
 }
 
-function Grid(props) {
+function Grid(props: {
+  data: Task[],
+  objectKey: string,
+  selectedRow: Task,
+  onRowSelect: (row: Task) => void,
+  cells: TodoCell[]
+}) {
   return (
     <div className="row">
       <div className="col-md-12">

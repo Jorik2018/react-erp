@@ -4,12 +4,7 @@ import Option from "./modules/Option";
 
 
 class RoomListScreen extends React.Component{
-  /*
-  props:
-  socket:
-  roomcodeList:
-  cb: takes state update 
-  */
+ 
   constructor(props){
     super(props);
     this.state={

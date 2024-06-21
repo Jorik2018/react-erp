@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import openSocket from 'socket.io-client';
 
 import Game from "./modules/Game";

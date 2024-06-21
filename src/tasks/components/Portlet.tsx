@@ -1,15 +1,16 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import { ReactNode } from 'react';
 
-function Portlet(props) {
+function Portlet({ title, children }: { title: string, children: ReactNode }) {
   return (
     <div className="portlet light">
       <div className="portlet-title">
         <div className="caption font-red-sunglo">
-          <span className="caption-subject bold uppercase">{props.title}</span>
+          <span className="caption-subject bold uppercase">{title}</span>
         </div>
       </div>
       <div className="portlet-body">
-        {props.children}
+        {children}
       </div>
     </div>
   );

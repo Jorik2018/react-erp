@@ -1,27 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//import { useState } from 'react'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
 import './App.css'
 import QuizApp from "./quizApp";
+import { Route, Routes } from 'react-router-dom';
+import DrawerMenu from './components/DrawerMenu';
+import { useState } from 'react';
+import TaskApp from './tasks';
+
+function Demo({ body }: { body: string }) {
+  const [count, setCount] = useState(0)
+  return <>
+    <div className="card">
+      <button onClick={() => setCount((count) => count + 1)}>
+        count is {count}
+      </button>
+      <p>
+        Edit <code>src/App.tsx</code> and save to test HMR {body}
+      </p>
+    </div>
+    <p className="read-the-docs">
+      Click on the Vite and React logos to learn more
+    </p>
+  </>
+}
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <QuizApp/>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <DrawerMenu />
+      <Routes>
+        <Route path="/" element={<Demo body="A" />} />
+        <Route path="/tasks/*" element={<TaskApp />} />
+        <Route path="/contact" element={<QuizApp />} />
+      </Routes>
+    </div>
   )
 }
 

@@ -1,8 +1,6 @@
 import React from "react";
 import Loading from "./Loading";
-//import { Editor, EditorState } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-//import { stateToHTML } from "draft-js-export-html";
+import Editor from 'react-simple-wysiwyg';
 import Question from "./Question";
 import Answers from "./Answers";
 
@@ -86,17 +84,11 @@ class AddQuestion extends React.Component {
               <label>
                 Question: 
               </label>
-              {/*<Editor
-                wrapperClassName="wrapper-class"
-                editorClassName="editor-class"
-                toolbarClassName="toolbar-class"
-                onEditorStateChange={(editorState)=>{
+              <Editor value={this.state.question} onChange={(e)=>{
                   this.setState({
-                    question: stateToHTML(editorState.getCurrentContent())
+                    question: e.target.value
                   });
-                }}
-              />*/}
-              {/* <input type="text" value={this.state.question} className="form-control" onChange={(event)=>this.takeTextInput(event,"question")} /> */}
+                }} />
             </div>
             <div className="form-group">
               <label> 
@@ -138,7 +130,7 @@ class AddQuestion extends React.Component {
         <Question questionText={this.state.question} />
             <Answers
               options={this.state.options}
-              onClick={i => {}}
+              onClick={i => {console.log(i);}}
               isOn={true}
             />
         </div>
