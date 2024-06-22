@@ -13,7 +13,7 @@ import axios from 'axios';
 
 type Dispatch = ThunkDispatch<RootState, unknown, UnknownAction>;
 
-const API_URL = 'http://localhost:3001/api';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export function fetchTodos() {
   return (dispatch: Dispatch) => {

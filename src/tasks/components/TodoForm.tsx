@@ -1,15 +1,18 @@
 import { connect } from 'react-redux';
-import { reduxForm, Field, FormErrors } from 'redux-form';
+import { reduxForm, Field, FormErrors, FormSubmitHandler } from 'redux-form';
 import Input from './Input';
 import Checkbox from './Checkbox';
 import { Link } from 'react-router-dom';
 import { Task } from '../models/Task';
 import { FormEventHandler } from 'react';
 
-const TodoForm = ({ disableCompleted, handleSubmit, onSubmit }: {
+type FormProps={
   disableCompleted: boolean,
-  handleSubmit: (onSubmit: () => void) => FormEventHandler | undefined,
-  onSubmit: () => void
+  onSubmit: FormSubmitHandler
+};
+
+const TodoForm = ({ disableCompleted, handleSubmit, onSubmit }: FormProps & {
+  handleSubmit: (onSubmit: FormSubmitHandler) => FormEventHandler | undefined;
 }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} >
@@ -50,14 +53,11 @@ function validate(values: Task): FormErrors {
   return errors;
 }
 
-
-const ContactForm2 = reduxForm({
-  form: 'todo',
-  validate
-})(TodoForm)
-
 const cmp = connect()(
-  ContactForm2
+  reduxForm<Task, FormProps>({
+    form: 'todo',
+    validate
+  })(TodoForm)
 );
 
 export default cmp;

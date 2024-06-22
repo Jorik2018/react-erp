@@ -2,11 +2,11 @@
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
 import './App.css'
-import QuizApp from "./quizApp";
 import { Route, Routes } from 'react-router-dom';
 import DrawerMenu from './components/DrawerMenu';
 import { useState } from 'react';
 import TaskApp from './tasks';
+import QuizApp from './quizApp';
 
 function Demo({ body }: { body: string }) {
   const [count, setCount] = useState(0)

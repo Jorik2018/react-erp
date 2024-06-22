@@ -4,7 +4,7 @@ function BackButton(props){
     return(
         <button 
             className="btn"
-            onClick={(e)=>props.cb()}
+            onClick={()=>props.cb()}
         >
         &#10005;
         </button>

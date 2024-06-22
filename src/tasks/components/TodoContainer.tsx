@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { initialize } from 'redux-form';
+import { FormSubmitHandler, initialize } from 'redux-form';
 import { Alert } from 'react-bootstrap';
 import PageContainer from './PageContainer';
 import Portlet from './Portlet';
@@ -22,12 +22,15 @@ const TodoContainer2 = ({ todo, initialize, createTodo, updateTodo, find, error 
 
   const navigate = useNavigate();
 
-  const onSubmit = (formValues: Task) => {
+  const onSubmit: FormSubmitHandler = (formValues) => {
+    console.log(formValues);
+    const task=formValues as unknown as Task;
     if (todo._id) {
-      return updateTodo(todo._id, formValues);
+      updateTodo(todo._id, task);
+    } else {
+      createTodo(task, navigate);
     }
-    createTodo(formValues, navigate);
-  }
+  };
 
   const handleInitialize = (todo: Task) => {
     initialize('todo', todo);
@@ -82,4 +85,5 @@ const cmp = connect(mapStateToProps, {
   updateTodo,
   initialize
 })(TodoContainer2);
+
 export default cmp;
