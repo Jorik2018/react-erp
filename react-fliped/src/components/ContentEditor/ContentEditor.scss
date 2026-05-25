@@ -1,0 +1,30 @@
+@import "../variables.scss";
+@import "../Content/Content.scss";
+
+.left {
+  position: absolute;
+  left: 18%;
+  top: -1.3em;
+}
+
+.center {
+  position: absolute;
+  left: 45%;
+  top: -1.3em;
+}
+
+.right {
+  position: absolute;
+  right: 18%;
+  top: -1.3em;
+}
+
+.rightmost {
+  @extend .right;
+  right: 10%;
+}
+
+.outer {
+  position: absolute;
+  left: -15%;
+}

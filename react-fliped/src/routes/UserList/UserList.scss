@@ -1,0 +1,11 @@
+@import "../../components/variables.scss";
+
+.main {
+  padding: $viewPadding;
+}
+
+@media screen and (max-width: $screen-sm-min) {
+  .main {
+    padding: $mobileViewPadding;
+  }
+}

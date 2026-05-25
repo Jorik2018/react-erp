@@ -6,7 +6,10 @@ import { Route, Routes } from 'react-router-dom';
 import DrawerMenu from './components/DrawerMenu';
 import { useState } from 'react';
 import TaskApp from './tasks';
-import QuizApp from './quizApp';
+import QuizApp from './quiz';
+import InventoryApp from './inventory/App';
+import StockApp from './stock/app/App';
+import LMSApp from './lms/App';
 
 function Demo({ body }: { body: string }) {
   const [count, setCount] = useState(0)
@@ -32,7 +35,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Demo body="A" />} />
         <Route path="/tasks/*" element={<TaskApp />} />
-        <Route path="/contact" element={<QuizApp />} />
+        <Route path="/quiz/*" element={<QuizApp />} />
+        <Route path="/inventory/*" element={<InventoryApp />} />
+        <Route path="/stock/*" element={<StockApp />} />
+        <Route path="/lms/*" element={<LMSApp />} />
+        
       </Routes>
     </div>
   )

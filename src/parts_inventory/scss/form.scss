@@ -1,0 +1,91 @@
+$itemAttributes: (
+    "id",
+    "name",
+    "price",
+    "price_total",
+    "supplier",
+    "supplier_nr",
+    "manufacturer",
+    "manufacturer_nr",
+    "link",
+    "unit",
+    "date_created",
+    "date_updated",
+    "type",
+    "value",
+    "stock",
+    "min_stock",
+    "tags",
+    "storage_name",
+    "storage_location",
+    "image",
+    "image_2",
+    "separator_1",
+    "separator_2",
+    "footer"
+);
+
+.form {
+    &--entry {
+        display: grid;
+        column-gap: 0.5rem;
+        min-width: 30rem;
+        grid-template:
+            [row2] "id null-0 type" fit-content(0) [row2]
+            [row3] "name name value" fit-content(0) [row3]
+            [row4] "price unit price_total" fit-content(0) [row4]
+            [row5] "image_2 stock min_stock" fit-content(0) [row5]
+            [row5] "image_2 storage_name storage_location" fit-content(0) [row5]
+            [row5] "separator_1 separator_1 separator_1" fit-content(0) [row5]
+            [row6] "supplier supplier_nr supplier_nr" fit-content(0) [row6]
+            [row7] "manufacturer manufacturer_nr manufacturer_nr" fit-content(0) [row7]
+            [row55] "separator_2 separator_2 separator_2" fit-content(0) [row55]
+            [row8] "image image image" fit-content(0) [row8]
+            [row8] "link link link" fit-content(0) [row8]
+            [row9] "tags tags tags" fit-content(0) [row9]
+            [row10] "date_created date_updated footer" fit-content(0) [row10]
+            / 1fr 1fr 1fr;
+    }
+
+    &--entry-separator-1,
+    &--entry-separator-2 {
+        border-radius: $base-pre-border-radius;
+        border-width: $global-border-width;
+        border-color: $global-border;
+        border-style: solid;
+        margin-top: 1rem;
+    }
+
+
+    &--entry-image-2 {
+        margin-top: 2rem;
+        border-radius: $base-pre-border-radius;
+        border-width: $global-border-width;
+        border-color: $global-border;
+        border-style: solid;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 56.5%;
+    }
+
+    &--entry-footer {
+        padding-top: 2rem;
+        text-align: right;
+    }
+
+    @each $itemAttribute in $itemAttributes {
+        [for='#{$itemAttribute}'] {
+            grid-area: unquote($itemAttribute);
+
+            > button,
+            > a {
+                top: 1.8rem;
+
+                :hover {
+                    color: $global-link-color;
+                }
+            }
+
+        }
+    }
+}

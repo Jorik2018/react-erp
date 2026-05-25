@@ -51,7 +51,16 @@ const DrawerMenu = () => {
                             <Link to="/tasks" onClick={dismissPanel}>Tasks</Link>
                         </li>
                         <li>
-                            <Link to="/contact" onClick={dismissPanel}>Contact</Link>
+                            <Link to="/quiz" onClick={dismissPanel}>Quiz</Link>
+                        </li>
+                        <li>
+                            <Link to="/inventory" onClick={dismissPanel}>Inventory</Link>
+                        </li>
+                        <li>
+                            <Link to="/stock" onClick={dismissPanel}>Stock</Link>
+                        </li>
+                        <li>
+                            <Link to="/lms" onClick={dismissPanel}>LMS</Link>
                         </li>
                     </ul>
                 </DrawerBody>

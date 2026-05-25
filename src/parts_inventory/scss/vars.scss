@@ -1,0 +1,72 @@
+$global-font-family:                    ProximaNova, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+$global-font-size:                      14px;
+$global-link-color:                     #{var(--accent)};
+$global-link-hover-color:               #{var(--accent-hover)};
+$global-border:                         #{var(--border-default)};
+$global-color:                          #{var(--text-primary)};
+$global-color-disabled:                 #{var(--text-primary-disabled)};
+$global-background:                     #{var(--background-primary)};
+$global-primary-background:             #{var(--accent)};
+$global-secondary-background:           #{var(--background-secondary)};
+$global-muted-background:               #{var(--background-secondary)};
+$global-emphasis-color:                 #{var(--text-primary)};
+
+$inverse-global-color:                  #{var(--text-primary-invert)};
+
+$base-code-font-family:                 Consolas, mono-spaced;
+$base-code-font-size:                   1.2rem;
+$base-heading-font-weight:              300;
+$base-pre-font-size:                    1.2rem;
+$base-pre-padding:                      2.5rem;
+$base-pre-border-width:                 0;
+$base-pre-border-radius:                0.3rem;
+$base-link-hover-text-decoration:       none;
+$overlay-primary-background:            #{var(--background-overlay)};
+$border-rounded-border-radius:          3px;
+
+$button-primary-active-background:      #{var(--accent)};
+$button-primary-hover-background:       #{var(--accent-hover)};
+$button-secondary-hover-background:     #{var(--accent)};
+$button-secondary-active-background:    #{var(--accent)};
+$button-default-hover-background:       #{var(--accent-hover)};
+$button-default-active-background:      #{var(--accent)};
+$button-default-color:                  #{var(--text-primary)};
+$button-disabled-color:                 #{var(--text-primary-disabled)};
+
+$card-primary-hover-background:         #{var(--accent-hover)};
+$card-secondary-hover-background:       #{var(--accent-hover)};
+$card-default-hover-background:         #{var(--accent)};
+
+$nav-header-font-size:                  1.2rem;
+
+$table-header-cell-font-size:           1rem;
+$table-row-active-background:           #{var(--mark-color)};
+
+$label-font-size:                       0.85rem;
+
+$alert-primary-background:              #{var(--background-secondary)};
+$alert-primary-color:                   #{var(--text-primary)};
+$alert-success-background:              #{var(--background-success)};
+$alert-success-color:                   #{var(--text-primary)};
+$alert-warning-background:              #{var(--background-warning)};
+$alert-warning-color:                   #{var(--text-primary)};
+$alert-danger-background:               #{var(--background-danger)};
+$alert-danger-color:                    #{var(--text-primary)};
+
+$notification-message-background:       #{var(--background-secondary)};
+$notification-message-font-size:        $global-font-size;
+
+$form-background:                       #{var(--background-primary)};
+$form-color:                            #{var(--text-primary)};
+$form-focus-color:                      #{var(--accent)};
+$form-radio-background:                 #{var(--background-secondary)};
+$form-radio-checked-focus-background:   #{var(--accent)};
+$form-disabled-background:              #{var(--background-primary)};
+$form-disabled-color:                   #{var(--text-primary-disabled)};
+$form-range-track-background:           #{var(--background-primary)};
+$form-range-track-focus-background:     #{var(--background-secondary)};
+
+$icon-image-size:                       1.6rem;
+$icon-link-active-color:                #{var(--text-primary)};
+$icon-button-hover-background:          #{var(--accent-hover)};
+$icon-button-active-background:         #{var(--accent)};

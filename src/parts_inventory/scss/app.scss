@@ -1,0 +1,239 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+a[disabled] {
+    pointer-events: none;
+    color: var(--text-primary-disabled);
+}
+
+.splitter-layout > .layout-splitter {
+    background: $global-secondary-background;
+    border-radius: $border-rounded-border-radius;
+
+    &:hover {
+        background: $global-link-hover-color;
+    }
+}
+
+[data-root] {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template:
+        [header] "header main" 5rem [header]
+        [main] "nav main" 1fr [main]
+        [footer] "footer main" fit-content(0) [footer]
+        / 5rem 1fr;
+
+        &.login{
+            grid-template:
+            [main] "main" 1fr [main]
+            / 1fr;
+
+            header,
+            nav,
+            footer {
+                display: none;
+            }
+
+        }
+}
+
+header {
+    grid-area: header;
+    background: $global-secondary-background;
+}
+
+nav {
+    grid-area: nav;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 1rem 0;
+    background: $global-secondary-background;
+}
+
+main {
+    display: grid;
+    grid-area: main;
+    grid-gap: 1.5rem;
+    overflow: hidden;
+    height: 100vh;
+}
+
+main {
+    .parts {
+        display: grid;
+        grid-template:
+            [toolbar] "toolbar" 5rem [toolbar]
+            [main] "pane" 1fr [main]
+        / 1fr;
+        padding: 2rem;
+        column-gap: 1.5rem;
+
+        .splitter-layout {
+            position: relative;
+        }
+
+        .pane {
+            grid-area: pane;
+        }
+
+        .data {
+            height: calc(100vH - 9rem);
+            overflow: auto;
+            overflow-y: scroll;
+            border-radius: $base-pre-border-radius;
+            border-width: $global-border-width;
+            border-color: $global-border;
+            border-style: solid;
+            margin-right: 0.5rem;
+
+            & .table {
+                &-row {
+                    &--selected {
+                        border: 0.1rem solid $form-focus-color;
+                        border-left-width: 0.4rem;
+
+                        a {
+                            color: $inverse-global-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .form {
+            padding: 0.5rem 1.5rem;
+            height: calc(100vH - 10rem);
+            overflow: auto;
+            overflow-y: scroll;
+            border-radius: $base-pre-border-radius;
+            border-width: $global-border-width;
+            border-color: $global-border;
+            border-style: solid;
+            margin-left: 0.4rem;
+
+            &:focus-within {
+                border-color: $form-focus-color;
+            }
+        }
+
+        .toolbar {
+            grid-area: toolbar;
+            display: grid;
+            grid-gap: 1.5rem;
+            grid-template:
+                [row1] "filter pageselector pagesize pagination actions" fit-content(0) [row1]
+                / 1fr auto auto auto auto;
+
+            .filter {
+                grid-area: filter;
+            }
+            .pagination {
+                grid-area: pagination;
+            }
+
+            .pagesize {
+                grid-area: pagesize;
+            }
+
+            .pageselector {
+                grid-area: pageselector;
+            }
+
+            .actions {
+                grid-area: actions;
+            }
+        }
+
+    }
+}
+
+
+.logo {
+    line-height: 5rem;
+    text-align: center;
+}
+
+.distributor {
+    display: grid;
+    grid-gap: 2rem;
+    row-gap: 0.5rem;
+    grid-template:
+        "filter result" calc(100vh - 24.5rem)
+        "status status" fit-content(0)
+        / 14rem 1fr;
+
+    &--result {
+        grid-area: result;
+        overflow: scroll;
+        display: block;
+        overflow-x: hidden;
+    }
+
+    &--filter {
+        grid-area: filter;
+        overflow: scroll;
+        display: block;
+        overflow-x: hidden;
+
+        span {
+            cursor: pointer;
+            margin-bottom: 2px;
+        }
+    }
+
+    &--status {
+        grid-area: status;
+    }
+
+    &--item {
+        display: grid;
+        grid-gap: 0.5rem;
+        grid-template:
+            "logo distributor" fit-content(0)
+            "image partnumber" fit-content(0)
+            "image description" fit-content(0)
+        / 4rem auto;
+    }
+
+    &--image {
+        grid-area: image;
+        background-image: url('../assets/media/noimage.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: $border-rounded-border-radius;
+        height: 4rem;
+    }
+
+    &--partnumber {
+        grid-area: partnumber;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    &--description {
+        grid-area: description;
+        overflow-y: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        height: fit-content;
+    }
+
+    &--name {
+        grid-area: distributor;
+    }
+
+    &--logo {
+        grid-area: logo;
+        height: 2rem;
+    }
+}

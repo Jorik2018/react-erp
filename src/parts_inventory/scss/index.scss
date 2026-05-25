@@ -1,0 +1,28 @@
+// App variables and color settings
+@import 'vars';
+@import 'theme';
+
+// Browsers reset
+@import '~@csstools/normalize.css';
+@import '~react-splitter-layout/lib/index.css';
+
+// UIKit default variables and available mixins
+@import '~uikit/src/scss/variables';
+@import '~uikit/src/scss/mixins';
+
+// UIKit App hooks
+@import 'mixins';
+
+// UIkit
+@import '~uikit/src/scss/uikit';
+
+// App
+@import 'app';
+@import 'welcome';
+@import 'font';
+@import 'scrollbar';
+@import 'sidebar';
+@import 'form';
+@import 'spin';
+@import 'login';
+@import 'table';

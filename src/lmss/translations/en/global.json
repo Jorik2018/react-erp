@@ -1,0 +1,17 @@
+{
+	"navbar": {
+		"logo": "English",
+		"register": "Register",
+		"login": "Sign in",
+		"logout": "Log Out",
+		"welcome": "Welcome"
+	},
+	"hero": {
+		"title": "English Title",
+		"paragraph": "English paragraph"
+	},
+	"not-found": {
+		"title": "Are you lost?",
+		"paragraph": "We did not find the route you are requesting"
+	}
+}

@@ -1,0 +1,268 @@
+@import "../../components/variables.scss";
+
+$indicator: 0.85em;
+$landingImage: url(/images/landing.svg);
+
+.dash {
+  margin: 0 auto;
+  padding: 4em;
+  max-width: $max-content-width;
+
+  & > div:not(:first-child) {
+    margin-top: 1.5em;
+  }
+}
+
+@media screen and (max-width: $screen-sm-min) {
+  .dash {
+    padding: 3em 1.35em;
+
+    & > div:not(:first-child) {
+      margin-top: 0.5em;
+    }
+  }
+
+  .reorder {
+    order: 1;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: initial;
+}
+
+/*
+  ====================
+    Dashboard Cards
+  ====================
+*/
+
+$cardPadding: 1.5em;
+
+@media screen and (max-width: $screen-sm-min) {
+  .break {
+    margin-top: 1.5em;
+  }
+}
+
+$cardHeight: 16em;
+
+.card {
+  background: white;
+  padding: $cardPadding;
+  border-radius: 7px;
+  box-shadow: $zCard;
+}
+
+.continue {
+  min-height: $cardHeight;
+  position: relative;
+
+  border-radius: 7px;
+  box-shadow: $zCard;
+
+  background-color: $dark;
+  background-image: $landingImage;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  & > .cardOverlay {
+    min-height: inherit;
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: $cardPadding;
+  }
+
+  & > .cardOverlay > .cardHeading > h2 {
+    color: $white;
+  }
+
+  & > .cardOverlay > .cardHeading > .icon > svg {
+    fill: $white;
+  }
+
+  & > .cardOverlay > .cardBody {
+    position: absolute;
+    bottom: 2em;
+    padding-right: 0.8em;
+  }
+
+  & > .cardOverlay > .cardBody > h2 {
+    color: efefef;
+    word-wrap: break-word;
+  }
+
+  & > .cardOverlay > .cardBody > small {
+    color: efefef;
+    word-wrap: break-word;
+  }
+}
+
+.continue > .cardOverlay:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.play {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  left: 0;
+  text-align: center;
+
+  & > svg {
+    width: 3em;
+    box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
+    border-radius: 50%;
+  }
+}
+
+.continue.new {
+  background-position: 2em 9em;
+}
+
+.card.medium {
+  display: flex;
+  flex-direction: column;
+
+  min-height: $cardHeight;
+
+  & > .cardHeading {
+    flex: 2;
+  }
+
+  & > .graphBody {
+    flex: 3;
+  }
+
+  & > .graphDots {
+    flex: 1;
+  }
+}
+
+.card.small {
+  display: flex;
+  position: relative;
+  min-height: $cardHeight / 2 - 2em;
+
+  & > .icon {
+    position: absolute;
+    right: 1em;
+  }
+
+  & > .inner {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  & > .inner > .icon {
+    flex: 1;
+    margin-top: -1.5em;
+  }
+
+  & > .inner > .cardBody {
+    flex: 4;
+  }
+}
+
+.card.ops {
+  & > h2 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.4em;
+  }
+}
+
+.card.chat {
+  min-height: $cardHeight;
+
+  & > h2 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.6em;
+  }
+
+  & > span {
+    color: $grey;
+    line-height: 1.6em;
+  }
+}
+
+.noChat {
+  margin-top: 0.5em;
+  text-align: center;
+
+  & > img {
+    width: 8em;
+    height: auto;
+  }
+
+  & > p {
+    color: $grey;
+    text-align: center;
+  }
+}
+
+.cardBody > h2 {
+  margin: 0;
+  text-align: left;
+
+  font-weight: $font-weight-base;
+  font-size: 1.6em;
+  line-height: 1.4em;
+}
+
+.cardBody > small {
+  text-align: left;
+  line-height: 1.4em;
+
+  font-size: 0.9em;
+  color: $grey;
+}
+
+.cardHeading {
+  display: flex;
+
+  & > h2 {
+    flex: 1;
+    margin: 0;
+
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.4em;
+  }
+}
+
+.icon > svg {
+  width: 1.4em;
+  height: 1.4em;
+  fill: $grey;
+}
+
+.chatIndicator {
+  display: inline-block;
+
+  & > span {
+    display: inline-block;
+  }
+
+  & > .status {
+    display: inline-block;
+    margin-right: 0.5em;
+    vertical-align: text-top;
+
+    height: $indicator;
+    width: $indicator;
+    max-height: $indicator;
+    max-width: $indicator;
+
+    background: white;
+    box-shadow: $z1;
+    border: 2px solid $green;
+    border-radius: 50%;
+  }
+}

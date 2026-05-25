@@ -1,0 +1,63 @@
+@import "../../components/variables.scss";
+
+$spacing: 2em;
+
+.root {
+  flex: 1;
+  background: #fefefe;
+
+  min-height: 100%;
+  position: relative;
+  // padding-bottom: 10em;
+}
+
+.h1 {
+  font-weight: $font-weight-base;
+  margin: inherit;
+  margin-top: 0.3em;
+  font-size: 1.8em;
+}
+
+.h3 {
+  color: grey;
+  font-weight: $font-weight-base;
+  margin-top: 0.6em;
+  line-height: 1.3em;
+}
+
+.obj {
+  margin-top: $spacing;
+  margin-bottom: $spacing;
+  position: relative;
+}
+
+.addContent {
+  // position: absolute;
+  // width: 100%;
+  // bottom: 0;
+}
+
+.editor {
+  height: auto;
+  min-height: 50%;
+}
+
+.fab {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+}
+
+.infoEditor {
+  padding-top: 2em;
+}
+
+.left {
+  position: absolute;
+  left: 3%;
+}
+
+.right {
+  position: absolute;
+  right: 3%;
+}

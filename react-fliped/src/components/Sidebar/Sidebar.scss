@@ -1,0 +1,129 @@
+@import "../variables.scss";
+
+$sidebarWidth: 6.6em;
+
+.sideLink {
+  text-decoration: none;
+  color: $grey;
+}
+
+.sidebarWrapper {
+  flex: 0;
+  background: #fefefe;
+
+  height: auto;
+  min-height: 100%;
+  box-shadow: $zFlow;
+
+  z-index: 1;
+}
+
+.sidebar {
+  background: #fefefe;
+  color: $grey;
+
+  min-width: $sidebarWidth;
+  max-width: $sidebarWidth;
+  height: auto;
+  min-height: 100%;
+
+  font-size: 0.9em;
+  font-weight: 400;
+  text-align: center;
+
+  padding-top: 2.5em;
+}
+
+.sidebarContainer {
+  position: fixed;
+  min-width: $sidebarWidth;
+  max-width: $sidebarWidth;
+}
+
+.bottomMobile {
+  display: none;
+}
+
+.sidebarMobile {
+  display: none;
+}
+
+@media screen and (max-width: $screen-sm-min) {
+  .bottomMobile {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .sidebarContainer {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .sidebarMobile.show {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 5em;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+
+    background: white;
+    min-height: 100%;
+  }
+
+  .logo > img {
+    display: none;
+  }
+}
+
+.logo {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em; // 3.5em
+  text-align: center;
+}
+
+.logo > img {
+  max-width: 60%;
+  height: auto;
+}
+
+.sidebarItem {
+  margin-bottom: 1.5em;
+  padding: 0 1em;
+}
+
+.sidebarItem.active {
+  color: $activeColor;
+}
+
+.sidebarItem:hover:not(.active) {
+  color: lighten($activeColor, 20%);
+  svg {
+    fill: lighten($activeColor, 20%);
+  }
+}
+
+.sidebarItem > svg {
+  fill: $grey;
+  width: 2em;
+  height: 2em;
+  display: inline-block;
+  margin: 1em auto;
+}
+
+.sidebarItem.active > svg {
+  fill: $activeColor;
+}

@@ -1,0 +1,547 @@
+@import "../../components/variables.scss";
+
+$firstHeight: 26em;
+$attachment: fixed;
+
+.cover {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  height: 30%;
+
+  margin: 2em 0em;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: $attachment;
+  background-position: center;
+  box-shadow: $zGrid;
+
+  & > .inner {
+    flex: 1;
+    align-self: center;
+  }
+
+  & > .inner > h2 {
+    margin: 0;
+
+    font-weight: $font-weight-base;
+    line-height: 1.4em;
+    text-align: center;
+    color: $white;
+  }
+}
+
+.root {
+
+}
+
+.wrapper {
+  margin-top: 2.5em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 870px;
+}
+
+.containerWide {
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+.first {
+  padding: 1em 1em;
+  background-color: $blue;
+  background-image: url(/images/learning.svg);
+  background-size: cover;
+  background-position: center 4em;
+  background-repeat: no-repeat;
+  background-attachment: $attachment;
+
+  box-shadow: $zGrid;
+
+  & > .container {
+    display: flex;
+    flex-direction: column;
+    min-height: $firstHeight;
+  }
+
+  & > .container > div {
+    align-self: center;
+    width: 100%;
+  }
+
+  & > .container > .nav {
+    flex: 1;
+  }
+
+  & > .container > .intro {
+    flex: 3;
+  }
+}
+
+.nav {
+  display: flex;
+
+  margin-top: 1em;
+  color: white;
+
+  & > div:first-child {
+    flex: 1;
+  }
+
+  & > div:not(:first-child) {
+    padding-left: 1.8em;
+    margin-top: 0.5em;
+  }
+
+  & > div:last-child {
+    margin-top: 0;
+    padding-left: 1.8em;
+  }
+
+  & > div > a {
+    color: white;
+    text-decoration: none;
+  }
+
+  & > div > :not(.login):not(.logo):hover,
+  & > div > :not(.login):not(.logo):focus {
+    border-bottom: 2px solid $white;
+    padding-bottom: 0.1em;
+  }
+
+  & > div > .logo {
+    width: 2.8em;
+    height: auto;
+    transition: all 0.6s ease-in-out;
+    mix-blend-mode: hard-light;
+  }
+
+  & > div > .logo:hover {
+    width: 3.3em;
+  }
+}
+
+.mobileNav {
+  display: none;
+}
+
+.toggleNav {
+  display: flex;
+  flex: 1;
+
+  text-align: right;
+  margin-right: 1em;
+}
+
+.toggleNav > .button {
+  @extend .resetBtn;
+  background: $dark; // transparent
+  width: 5.5em;
+  padding: 0.4em 0;
+  color: $white;
+  font-weight: 400;
+  border: 2px solid $white;
+  border-radius: 1em;
+  text-align: center;
+}
+
+.toggleNav > .lang {
+  @extend .resetBtn;
+  width: 4em;
+  background: transparent;
+  color: #efefef;
+  padding: 0.4em 0;
+  margin-right: 0.5em;
+}
+
+@media screen and (max-width: 640px) {
+  .nav {
+    flex: 0 !important;
+    margin-top: 7em;
+  }
+
+  .nav > div {
+    display: none;
+  }
+
+  .mobileNav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 2;
+    width: 100%;
+    padding: 0.6em 0;
+
+    color: white;
+    background: #1b1f24;
+    box-shadow: $z1;
+
+    & > div {
+      align-self: center;
+    }
+
+    & > div:first-child {
+      flex: 2;
+    }
+
+    & > div > .logo {
+      width: 2.6em;
+      padding-left: 1.5em;
+      height: auto;
+    }
+  }
+
+  .first {
+    // padding-top: 20%;
+  }
+}
+
+.navFixer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(53, 62, 72, 0.6);
+}
+
+.navWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  z-index: 8;
+  width: 100%;
+  padding-top: 7em;
+}
+
+.navWrapper > div {
+  flex: 1;
+  align-self: center;
+
+  & > span, & > a, & > button {
+    @extend .resetBtn;
+    background: $dark;
+    color: $white;
+    padding: 1em 3em;
+    box-shadow: $z1;
+  }
+}
+
+.login {
+  @extend .resetBtn;
+  box-shadow: $z1;
+  color: $white;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.3em 0.9em;
+  border: 0.15em solid $white;
+  border-radius: 10em;
+}
+
+.login:hover, .login:focus {
+  color: $dark;
+  background: white;
+  border: 0.15em solid transparent;
+}
+
+/*
+  =====================
+    Section 1: Intro
+  ====================
+*/
+
+.introText {
+  flex-direction: column;
+  color: white;
+  height: 35%;
+
+  text-align: center;
+
+  & > h2 {
+    margin: 0;
+    line-height: 1.8em;
+    font-size: 1.9em;
+    font-weight: $font-weight-base;
+  }
+
+  & > h3 {
+    font-weight: $font-weight-base;
+    line-height: 1.6em;
+
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  & > .introCta {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: $screen-sm-min) {
+  .introText > h2 {
+    font-size: 1.6em;
+    line-height: 1.6em;
+  }
+
+  .introText > h3 {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    margin-top: 0.5em;
+  }
+}
+
+@media screen and (max-width: $screen-xs-min) {
+  .introText > h2 {
+    font-size: 1.4em;
+    font-size: 1.4em;
+    margin-bottom: 1em;
+  }
+
+  .introText > h3 {
+    font-size: 1em;
+    line-height: 1.4em;
+    margin-top: 0;
+    margin-bottom: 2em;
+  }
+}
+
+.introBtn {
+  @extend .resetBtn;
+  width: 9em;
+  min-height: 3em;
+  border-radius: 4px;
+  padding: 0.5em;
+  font-weight: 400;
+  box-shadow: $z1;
+  margin: 0 auto;
+
+  background: white;
+  color: $dark;
+}
+
+.introBtn:hover, .introBtn:focus {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: 2px solid $white;
+}
+
+.introMedia > img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: $zFlow;
+}
+
+/*
+  ====================
+    Section 2: Why?
+  ====================
+*/
+
+.whyText {
+  text-align: center;
+
+  & > h2 {
+    font-weight: $font-weight-base;
+    line-height: 1.4em;
+    margin: 0;
+  }
+
+  & > h3 {
+    margin: 0;
+    margin-top: 0.5em;
+    font-weight: $font-weight-base;
+    line-height: 1.6em;
+    color: $grey;
+  }
+}
+
+.features {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.feature {
+  & > svg {
+    fill: #f7931e;
+    width: 2.8em;
+  }
+
+  & > img {
+    width: 7.5em;
+  }
+
+  & > h3 {
+    color: $dark;
+    font-weight: $font-weight-base;
+    line-height: 1.6em;
+  }
+
+  & > h4 {
+    color: $grey;
+    font-weight: $font-weight-base;
+    line-height: 1.6em;
+  }
+}
+
+.sect1 {
+  @extend .cover;
+  background-color: $blue;
+  background-image: url(/images/learning.svg);
+  height: 26em;
+  background-attachment: $attachment;
+}
+
+@media screen and (max-width: $screen-sm-min) {
+  .sect1 {
+    background-position: center 0;
+    background-image: url(/images/desk3.svg);
+    background-size: contain;
+  }
+}
+
+.quote {
+  color: white;
+  font-weight: $font-weight-base;
+  line-height: 1.6em;
+}
+
+.details {
+  padding: 3em 0;
+
+  & > h2 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.7em;
+    text-align: center;
+    line-height: 1.5em;
+  }
+
+  & > .awards {
+    margin-top: 2em;
+  }
+}
+
+.award {
+  text-align: center;
+
+  & > p {
+    font-size: 1.1em;
+  }
+
+  & > img {
+    height: auto;
+  }
+
+  & > .nectec {
+    width: 13em;
+  }
+
+  & > .scbf {
+    width: 7.5em;
+  }
+
+  & > .obec {
+    margin: 1.5em;
+    text-align: center;
+    font-family: serif;
+    font-size: 2.5em;
+    color: #717171;
+  }
+}
+
+/*
+  =============================
+    Section Final: Stats & Awards
+  =============================
+*/
+
+
+.stat {
+  text-align: center;
+
+  & > h2 {
+    margin: 0;
+    color: #2d2d30;
+    font-weight: $font-weight-base;
+    font-size: 2em;
+    line-height: 1.8em;
+  }
+
+  & > h4 {
+    margin: 0;
+    font-weight: $font-weight-base;
+    line-height: 1.4em;
+    color: $grey;
+  }
+}
+
+/*
+  ===========
+    Sign Up
+  ===========
+*/
+
+.signupForm {
+  max-width: 28em;
+  margin: 0 auto;
+}
+
+.signupText {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.signupText > h2 {
+  margin: 0;
+  margin-bottom: 1.2em;
+
+  font-weight: $font-weight-base;
+  line-height: 1.4em;
+}
+
+.signupBtn {
+  @extend .resetBtn;
+  width: 7em;
+  border-radius: 4px;
+  padding: 0.7em 1.2em;
+  color: $white;
+  background: $dark;
+  box-shadow: $z1;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.signupBtn:hover, .signupBtn:focus {
+  color: $dark;
+  background: $white;
+  border: 2px solid $dark;
+  font-weight: 500;
+}
+
+/*
+  ==========
+    Footer
+  ==========
+*/
+
+.footer {
+  margin-top: 3.5em;
+  font-size: 0.88em;
+  line-height: 1.6em;
+  padding: 1.3em 3em;
+  text-align: center;
+  background: $blue;
+  color: $white;
+  box-shadow: $zLite;
+}

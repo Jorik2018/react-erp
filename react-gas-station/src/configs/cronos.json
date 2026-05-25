@@ -1,0 +1,89 @@
+{
+  "launchDate": "",
+  "lookupLiquidityPairs": [
+    {
+      "name": "crystl LP",
+      "address": "evm:0xDF06013797083E077aA1347D74bD7c7cDfeF7856"
+    }
+  ],
+  "display": "Cronos",
+  "tokenImage": "/public/images/tokens/cro-hex.png",
+  "etherLiquidityPair": "evm:0x637348EaCE7f44C1dF82e15bcb0F968351fB7406",
+  "liquidityPairs": [
+    {
+      "name": "reward pair",
+      "address": "evm:0x769A41224008F257980E7717e5d47cB012096F42"
+    }
+  ],
+  "gasTokenName": "croGAS",
+  "name": "cronos",
+  "etherCoingeckoId": "WCRO",
+  "buyAddress": "https://swap.crodex.app/#/swap?outputCurrency=0x2c7B96bDDa46104521d40AD3dCf80F9015051c31",
+  "launched": true,
+  "gasTokenAddress": "evm:0x2c7B96bDDa46104521d40AD3dCf80F9015051c31",
+  "patronLaunced": false,
+  "chartAddress": "https://dexscreener.com/cronos/0x769a41224008f257980e7717e5d47cb012096f42",
+  "pools": [
+    {
+      "name": "croGAS LP Dual Fuel",
+      "address": "evm:0xE38DBE5A09eA804cdCF6Fdc284f9d6035ed06990",
+      "type": "DoubleV2",
+      "stakeIcon": "/public/images/tokens/cro-circle.svg",
+      "reward0Icon": "/public/images/tokens/gas.svg",
+      "reward1Icon": "/public/images/tokens/cro-circle.svg",
+      "stakeSymbol": "croGAS-WCRO CroDex LP"
+    },
+    {
+      "name": "croGAS LP Dual Fuel #2",
+      "address": "evm:0x27D9E258f100747e38Df224FF9a462C217463299",
+      "type": "DoubleV2",
+      "stakeSymbol": "croGAS-WCRO CroDex LP",
+      "stakeIcon": "/public/images/tokens/cro-circle.svg",
+      "reward0Icon": "/public/images/tokens/gas.svg",
+      "reward1Icon": "/public/images/tokens/cro-circle.svg"
+    },
+    {
+      "name": "croGAS Maximizer",
+      "address": "evm:0x6ce1b9E2a8a80dA21Ed1463ccAC770c83bD621Cb",
+      "type": "SingleV3",
+      "stakeIcon": "/public/images/tokens/gas.svg",
+      "reward0Icon": "/public/images/tokens/gas.svg"
+    },
+    {
+      "name": "WCRO Fuel Pool",
+      "address": "evm:0xDBD9BfcB77B6a0477411282022FEE2CF81f06cd6",
+      "type": "SingleV3",
+      "stakeIcon": "/public/images/tokens/cro-circle.svg",
+      "reward0Icon": "/public/images/tokens/gas.svg"
+    },
+    {
+      "name": "Fuel Up",
+      "address": "evm:0x025fC72Ff96BF32AED5a9894Ffb4aA4da32Cc976",
+      "type": "SingleV3",
+      "stakeIcon": "/public/images/tokens/usdc.png",
+      "reward0Icon": "/public/images/tokens/gas.svg"
+    },
+    {
+      "name": "High Vibe",
+      "address": "evm:0xFDE2129A6BbEb01140EEB3d6309a03B910aE57b9",
+      "type": "SingleV3",
+      "stakeIcon": "/public/images/tokens/gas.svg",
+      "reward0Icon": "https://www.polycrystal.finance/images/pools/crystl-crystl.svg"
+    },
+    {
+      "name": "Stable Up",
+      "address": "evm:0xD97068DC3464052C5FDD9881D253cefFbe8845FB",
+      "type": "SingleV3",
+      "stakeSymbol": "croGAS",
+      "stakeIcon": "/public/images/tokens/gas.png",
+      "reward0Icon": "/public/images/tokens/usdc.png",
+      "rewardSymbols": [
+        "USDC"
+      ]
+    }
+  ],
+  "chainId": 25,
+  "teamLock": "evm:0x8D172A7e2226c0C9686E33149fcD195B5680687A",
+  "scanLink": "https://cronos.org/explorer/address/0x2c7B96bDDa46104521d40AD3dCf80F9015051c31/write-contract",
+  "nfpScanLink": ""
+}

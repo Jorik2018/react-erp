@@ -1,0 +1,150 @@
+@mixin hook-form() {
+    border-radius: $base-pre-border-radius;
+    border-width: $global-border-width;
+    border-color: $global-border;
+    border-style: solid;
+    font-size: 1rem;
+    font-weight: normal;
+
+    &:invalid,
+    &:focus:invalid {
+        border-color: var(--backround-danger);
+    }
+}
+
+@mixin hook-form-focus() {
+    background: $global-background;
+    border-color: $form-focus-color;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 2px 3px 0 rgba(0,0,0,.1);
+}
+
+@mixin hook-button-primary() {
+    //
+}
+
+@mixin hook-button-default() {
+    border-radius: $base-pre-border-radius;
+    border-width: $global-border-width;
+    border-color: $global-border;
+    border-style: solid;
+}
+
+@mixin hook-button-default-hover() {
+    color: $inverse-global-color;
+}
+@mixin hook-button-default-active() {
+    color: $inverse-global-color;
+}
+
+@mixin hook-button() {
+    border-radius: $base-pre-border-radius;
+    line-height: 2.75rem;
+    padding: 0 1.5rem;
+}
+
+.uk-button-group {
+    > *:nth-child(odd),
+    > *:nth-child(even) {
+        border: 1px solid $global-border;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+
+        > *:not(.uk-dropdown) {
+            border-radius: 0 $base-pre-border-radius $base-pre-border-radius 0;
+        }
+    }
+    > *:first-child {
+        border-radius: $base-pre-border-radius 0 0 $base-pre-border-radius;
+        border: 1px solid $global-border;
+        border-right: 0;
+    }
+    > *:last-child {
+        border-radius: 0 $base-pre-border-radius $base-pre-border-radius 0;
+        border: 1px solid $global-border;
+        border-left: 0;
+    }
+    > button:last-of-type {
+        border-radius: 0 $base-pre-border-radius $base-pre-border-radius 0;
+        border-left: 0;
+    }
+}
+
+@mixin hook-label(){
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.5rem;
+
+    &-hollow,
+    &-hollow-primary {
+        background: transparent;
+        border-radius: $base-pre-border-radius;
+        border-width: $global-border-width;
+        border-color: $global-border;
+        border-style: solid;
+        color: $global-color;
+
+        &.uk-active {
+            background: $global-primary-background !important;
+            color: $global-inverse-color;
+        }
+    }
+}
+
+@mixin hook-dropdown() {
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+    border-radius: $base-pre-border-radius;
+}
+
+@mixin hook-form-label() {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 2rem;
+}
+
+@mixin hook-table() {
+    position: relative;
+    thead {
+        background: $global-background;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+}
+
+@mixin hook-table-header-cell() {
+    font-weight: normal;
+    position: relative;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+
+@mixin hook-table-cell() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: default;
+}
+
+@mixin hook-notification-message-primary() {
+    border-radius: $base-pre-border-radius;
+    border: 1px solid var(--background-primary);
+}
+
+@mixin hook-notification-message-success() {
+    border-radius: $base-pre-border-radius;
+    border: 1px solid var(--background-success);
+}
+
+@mixin hook-notification-message-warning() {
+    border-radius: $base-pre-border-radius;
+    border: 1px solid var(--background-warning);
+}
+
+@mixin hook-notification-message-danger() {
+    border-radius: $base-pre-border-radius;
+    border: 1px solid var(--background-danger);
+}

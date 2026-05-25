@@ -1,0 +1,18 @@
+@import "../variables.scss";
+
+.root {
+  height: auto;
+  display: flex;
+  -ms-flex-direction: row;
+  box-orient: horizontal;
+  background: #F0F2F5;
+}
+
+.view {
+  flex: 1;
+  position: relative;
+}
+
+.main {
+  margin-top: $navTop;
+}

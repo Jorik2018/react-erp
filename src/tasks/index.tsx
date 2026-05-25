@@ -1,7 +1,6 @@
-import { Route } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import TodoListContainer from './components/TodoListContainer';
 import { Provider } from 'react-redux';
-import { Routes } from 'react-router-dom';
 import TodoContainer from './components/TodoContainer';
 import store from './store';
 

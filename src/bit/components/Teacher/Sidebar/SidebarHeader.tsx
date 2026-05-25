@@ -1,0 +1,36 @@
+import styled from 'styled-components'
+
+import ProfPic from '../../shared/low/ProfPic'
+
+const Wrapper = styled.div`
+	background-color: black;
+`
+
+const Container = styled.div`
+	padding: 2em;
+	flex-shrink: 0;
+	opacity: 0;
+
+	background-color: black;
+	color: ${props => props.theme.offFont};
+`
+
+const SidebarHeader = ({user}:{user:{image:string}}) => {
+	return (
+		<Wrapper>
+			<Container className="teacher-i-sidebar">
+				<h3 style={{ marginTop: '0', marginBottom: '0.5em' }}>Grading View</h3>
+				<ProfPic
+					src={
+						user.image
+					}
+					name={
+						null ?? 'Expert' // user.name
+					}
+				/>
+			</Container>
+		</Wrapper>
+	)
+}
+
+export default SidebarHeader
